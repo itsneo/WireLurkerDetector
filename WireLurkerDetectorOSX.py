@@ -59,7 +59,7 @@ def is_file_hidden(f):
     if not os.path.exists(f) or not os.path.isfile(f):
         return False
 
-    if sys.version_info[0] >= 2 and sys.version_info[2] >= 7 and sys.version_info >= 3:
+    if (sys.version_info[0] >= 2 and sys.version_info[1] >= 7) or (sys.version_info[0] >= 3 and sys.version_info[1] >= 2):
         return os.stat(f).st_flags.UF_HIDDEN
 
     else:
